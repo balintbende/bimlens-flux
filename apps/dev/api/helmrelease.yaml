@@ -9,7 +9,7 @@ spec:
       chart: charts
       sourceRef:
         kind: GitRepository
-        name: bimlens-helm-repo-dev
+        name: bimlens-helm-repository-dev
         namespace: flux-system
   rollback:
     timeout: 5m
