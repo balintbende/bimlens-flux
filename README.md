@@ -1,4 +1,4 @@
-# bimlens git ops
+# bimlens flux
 
 Flux is responsible automatically releasing the latest available images of the
 bimlens services.
@@ -11,13 +11,12 @@ host multiple environments, namespaced.
 ```
 ├── apps
 │   ├── base
-│   ├── bimlens-dev
-│   └── bimlens-prod
-│   └── some-foundation-app
+│   ├── dev
+│   └── prod
+│
 └── clusters
-    ├── bimlens-dev
-    └── bimlens-prod
-    └── foundation-dev
+    ├── dev
+    └── prod
 ```
 
 In `apps` the different configuration of the services are defined using kustomization

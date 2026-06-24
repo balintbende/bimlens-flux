@@ -1,0 +1,36 @@
+##
+## This is the repository configuration for the GitHub repo where the
+## flux configuration is located.
+##
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: development
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  ref:
+    branch: main
+  secretRef:
+    name: github-credentials
+  url: ssh://git@github.com:balintbende/bimlens-flux
+---
+
+##
+## This kustomization maps the /apps/dev folder as the place for
+## scanning for image automation changes. Id est: where the actual helm releases
+## and images are set.
+##
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: bimlens-dev
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  path: ./apps/dev
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: development
