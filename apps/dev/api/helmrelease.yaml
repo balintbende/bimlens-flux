@@ -27,7 +27,7 @@ spec:
       namespace: "dev"
       nodeGroupProfile: "default"
     api:
-      image: ghcr.io/balintbende/bimlens-api:develop-73f2278-1782397602 # {"$imagepolicy": "flux-system:api-dev-image-policy"}
+      image: ghcr.io/balintbende/bimlens-api:develop-a428bbd-1782484762 # {"$imagepolicy": "flux-system:api-dev-image-policy"}
       replicas: 1
       host: "api.bimlens.dev"
       serviceName: "api-dev"
