@@ -1,28 +1,14 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
-  name: main-gateway
-  namespace: default
+  name: gateway
+  namespace: envoy-gateway-system
 spec:
   gatewayClassName: envoy-gateway
   listeners:
-    # HTTP listener
     - name: http
       protocol: HTTP
       port: 80
-      allowedRoutes:
-        namespaces:
-          from: All
-    # HTTPS listener
-    - name: https
-      protocol: HTTPS
-      port: 443
-      hostname: "app.example.com"
-      tls:
-        mode: Terminate
-        certificateRefs:
-          - kind: Secret
-            name: wildcard-tls-secret
       allowedRoutes:
         namespaces:
           from: All
